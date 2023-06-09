@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SIDCON AFRICA LIMITED</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <style>
+    /* Add some basic styles to make the website look presentable */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: skyblue;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    select {
+      width: 100%;
+      padding: 5px;
+    }
+
+    input[type="text"] {
+      width: 50%;
+      padding: 15px 25px;
+      outline: none;
+
+    }
+    input[type="text"] {
+      width: 50%;
+      padding: 15px 25px;
+      outline: blue;
+
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #555;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    #result {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+    <img src="images/LOGO.jpeg" alt="logo" width="120px" height="120px">
+  <h1>SIDCON AFRICA LIMITED</h1>
+  <form onsubmit="sendWhatsAppMessage(event)">
+    <label for="room-selection">Select the number of rooms:</label>
+    <select id="room-selection" name="rooms">
+      <option value="1">1 Room</option>
+      <option value="2">2 Rooms</option>
+      <option value="3">3 Rooms</option>
+      <option value="4">4 Room</option>
+      <option value="5">5 Rooms</option>
+    <option value="6">6 Rooms</option>
+    <option value="7">7 Room</option>
+    <option value="8">8 Rooms</option>
+    <option value="9">9 Rooms</option>
+    <option value="10">10 Room</option>
+    <option value="11">11 Rooms</option>
+    <option value="12">12 Rooms</option>
+    <option value="13">13 Room</option>
+    <option value="14">14 Rooms</option>
+    <option value="15+">15+ Rooms</option>
+      <!-- Add more options as needed -->
+    </select>
+    <label for="client-name">Your Name:</label>
+    <input type="text" id="client-name" name="clientName" required>
+    <label for="client-email">Your Email:</label>
+    <input type="text" id="client-email" name="clientEmail" required>
+    <input type="submit" value="Submit">
+    <button style="padding: 12px 12px; background: limegreen;"><a href="index.html" style="text-decoration: none; color:black;">BACK</a></button>
+  </form>
+  <div id="result"></div>
+  <script>
+    function sendWhatsAppMessage(event) {
+      event.preventDefault(); // Prevent form submission
+      var rooms = document.getElementById("room-selection").value;
+      var clientName = document.getElementById("client-name").value;
+      var clientEmail = document.getElementById("client-email").value;
+      var message = "Number of rooms: " + rooms + "%0A";
+      message += "Client Name: " + clientName + "%0A";
+      message += "Client Email: " + clientEmail;
+      var url = "https://api.whatsapp.com/send?phone=+254796415824&text=" + encodeURIComponent(message);
+      // Replace YOUR_PHONE_NUMBER with the architect's WhatsApp phone number
+      window.open(url);
+      // Display a success message
+      var result = document.getElementById("result");
+      result.textContent = "WhatsApp message sent!";
+    }
+  </script>
+</body>
+</html>
